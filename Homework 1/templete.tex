@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+
+% \usepackage[sort]{natbib}
+\usepackage[style=verbose]{biblatex}
+\usepackage{fancyhdr}
+\usepackage{graphicx,caption,subcaption,color,float} %Graphics stuff
+\usepackage{hyperref,amssymb,amsmath, amsfonts, amsthm, enumerate, bm}
+\usepackage{placeins, cancel, wrapfig, xcolor, array, multirow, booktabs, algorithm, algpseudocode} 
+\usepackage[margin=0.9in]{geometry}
+\usepackage{ulem}
+\graphicspath{ {figs/} }
+\bibliography{references}
+
+% you may include other packages here (next line)
+\usepackage{enumitem}
+\usepackage{dirtytalk}
+
+%----- you must not change this -----------------
+\topmargin -1.0cm
+\textheight 23.0cm
+\parindent=0pt
+\parskip 1ex
+\renewcommand{\baselinestretch}{1.1}
+\pagestyle{fancy}
+\renewcommand{\theenumi}{\Alph{enumi}}
+\makeatletter
+\newcommand{\distas}[1]{\mathbin{\overset{#1}{\kern\z@\sim}}}%
+\newsavebox{\mybox}\newsavebox{\mysim}
+\newcommand{\distras}[1]{%
+  \savebox{\mybox}{\hbox{\kern3pt$\scriptstyle#1$\kern3pt}}%
+  \savebox{\mysim}{\hbox{$\sim$}}%
+  \mathbin{\overset{#1}{\kern\z@\resizebox{\wd\mybox}{\ht\mysim}{$\sim$}}}%
+}
+\makeatother
+%----------------------------------------------------
+
+% enter your details here----------------------------------
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\setlength{\fboxrule}{4pt}\setlength{\fboxsep}{2ex}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+\title{Homework 1}
+\author{Your Name}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Problem 1:}
+
+
+\clearpage
+
+
+\textbf{Problem 2:}
+
+
+\clearpage
+
+\textbf{Problem 3:}
+
+
+\clearpage
+
+
+
+\end{document}
