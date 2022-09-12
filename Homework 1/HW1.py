@@ -29,11 +29,14 @@ layout = nx.spring_layout(G, seed=seed)
 """
 pred = nx.jaccard_coefficient(G)
 
-
 # -- keep a copy of edges in the graph
 old_edges = copy.deepcopy(G.edges())
 
 # -- add new edges representing similarities.
+"""
+    This is an example to show how to add edges to a graph. You may need to modify the 
+    loop and don’t need to use the loop as it is.
+"""
 new_edges, metric = [], []
 for u, v, p in pred:
     G.add_edge(u, v)
