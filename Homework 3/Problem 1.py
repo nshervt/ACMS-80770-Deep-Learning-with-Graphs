@@ -1,3 +1,12 @@
+"""
+ACMS 80770-03: Deep Learning with Graphs
+Instructor: Navid Shervani-Tabar
+Fall 2022
+University of Notre Dame
+
+Homework 2: Programming assignment
+Problem 1
+"""
 import torch
 from torch import nn
 import warnings
