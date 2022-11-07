@@ -36,6 +36,7 @@ def adj(x):
 def sig(x):
     x = x[0]
     atoms = np.ones((V)).astype(float)
+    atoms[:len(x)] = x
     out = np.array([int(atom == atom_type) for atom_type in atom_types for atom in atoms]).astype(float)
     return torch.tensor(out).reshape(5, len(atoms)).T
 
