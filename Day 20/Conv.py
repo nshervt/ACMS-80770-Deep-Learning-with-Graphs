@@ -38,10 +38,24 @@ if False:
 
 from PIL import Image
 
-
+# -- import figure
 x = np.asarray(Image.open('dome_rgb.jpg'))
 x = 0.2 * x[:, :, 0] + 0.5 * x[:, :, 1] + 0.1 * x[:, :, 2]
 
-plt.imshow(x, cmap='gray')
+# plt.imshow(x, cmap='gray')
+# plt.show()
+
+# -- define kernel
+k = np.zeros([6, 6])
+k[:3, :] = 1
+k[3:, :] = -1
+
+plt.imshow(k, cmap='Greys')
+plt.colorbar()
+plt.xticks(np.arange(.5, np.shape(k)[0], 1))
+plt.yticks(np.arange(.5, np.shape(k)[0], 1))
+plt.grid()
 plt.show()
+
+# -- 
 
