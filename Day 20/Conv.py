@@ -39,7 +39,8 @@ if False:
 from PIL import Image
 
 
-x = np.asarray(Image.open('dome_g.jpg'))
+x = np.asarray(Image.open('dome_rgb.jpg'))
+x = 0.2 * x[:, :, 0] + 0.5 * x[:, :, 1] + 0.1 * x[:, :, 2]
 
 plt.imshow(x, cmap='gray')
 plt.show()
