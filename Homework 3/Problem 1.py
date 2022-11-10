@@ -80,7 +80,7 @@ class GraphPooling:
 
 class MyModel(nn.Module):
     """
-        Regression  model
+        Regression model
     """
     def __init__(self):
         super(MyModel, self).__init__()
