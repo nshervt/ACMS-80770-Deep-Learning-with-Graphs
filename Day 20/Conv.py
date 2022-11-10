@@ -42,8 +42,8 @@ from PIL import Image
 x = np.asarray(Image.open('dome_rgb.jpg'))
 x = 0.2 * x[:, :, 0] + 0.5 * x[:, :, 1] + 0.1 * x[:, :, 2]
 
-# plt.imshow(x, cmap='gray')
-# plt.show()
+plt.imshow(x, cmap='gray')
+plt.show()
 
 # -- define kernel
 k = np.zeros([6, 6])
@@ -57,5 +57,14 @@ plt.yticks(np.arange(.5, np.shape(k)[0], 1))
 plt.grid()
 plt.show()
 
-# -- 
+# -- 2D convolution
+import scipy.signal as sig
+
+x_conv = sig.convolve2d(x, k, mode='same')
+
+plt.imshow(x_conv, cmap='Greys')
+plt.show()
+
+
+
 
