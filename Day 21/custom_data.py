@@ -16,16 +16,16 @@ warnings.simplefilter(action='ignore', category=UserWarning)
 from chainer_chemistry import datasets
 from chainer_chemistry.dataset.preprocessors.ggnn_preprocessor import GGNNPreprocessor
 # from torchvision import datasets
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, DataLoader
 
 """
     load data
 """
 class MolecularDataset(Dataset):
-    def __init__(self):
+    def __init__(self, N):
         dataset, dataset_smiles = datasets.get_qm9(GGNNPreprocessor(kekulize=True),
                                                    return_smiles=True,
-                                                   target_index=np.random.choice(range(133000), 100, False))
+                                                   target_index=np.random.choice(range(133000), N, False))
 
         self.atom_types = [6, 8, 7, 9, 1]
         self.V = 9
@@ -97,7 +97,6 @@ class MyModel(nn.Module):
     def forward(self, A, h0):
         pass
 
-quit()
 """
     Train
 """
@@ -105,13 +104,14 @@ quit()
 model = MyModel()
 # MyLoss =
 # MyOptimizer =
+train_dataset = MolecularDataset(N=5000)
+train_dataloader = DataLoader(train_dataset, batch_size=2, shuffle=True)
 
 # -- update parameters
 for epoch in range(200):
-    for i in range(10):
-
+    for idx, (A, f, y) in enumerate(train_dataloader):
         # -- predict
-        pred = model(adjs[i*10:(i+1)*10], sigs[i*10:(i+1)*10])
+        pred = model(A, f)
 
         # -- loss
         # loss = ?
