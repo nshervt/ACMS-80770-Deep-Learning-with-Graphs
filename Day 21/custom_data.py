@@ -15,32 +15,20 @@ import numpy as np
 warnings.simplefilter(action='ignore', category=UserWarning)
 from chainer_chemistry import datasets
 from chainer_chemistry.dataset.preprocessors.ggnn_preprocessor import GGNNPreprocessor
-
+# from torchvision import datasets
+from torch.utils.data import Dataset
 
 """
     load data
 """
-
-
-V = 9
-atom_types = [6, 8, 7, 9, 1]
-
-
-
-
-
-
-
-
-
-from torchvision import datasets
-
-
-class MolecularDataset(datasets):
+class MolecularDataset(Dataset):
     def __init__(self):
         dataset, dataset_smiles = datasets.get_qm9(GGNNPreprocessor(kekulize=True),
                                                    return_smiles=True,
                                                    target_index=np.random.choice(range(133000), 100, False))
+
+        self.atom_types = [6, 8, 7, 9, 1]
+        self.V = 9
 
         self.adjs = torch.stack(list(map(self.adj, dataset)))
         self.sigs = torch.stack(list(map(self.sig, dataset)))
@@ -48,15 +36,15 @@ class MolecularDataset(datasets):
 
     def adj(self, x):
         x = x[1]
-        adjacency = np.zeros((V, V)).astype(float)
+        adjacency = np.zeros((self.V, self.V)).astype(float)
         adjacency[:len(x[0]), :len(x[0])] = x[0] + 2 * x[1] + 3 * x[2]
         return torch.tensor(adjacency)
 
     def sig(self, x):
         x = x[0]
-        atoms = np.ones((V)).astype(float)
+        atoms = np.ones((self.V)).astype(float)
         atoms[:len(x)] = x
-        out = np.array([int(atom == atom_type) for atom_type in atom_types for atom in atoms]).astype(float)
+        out = np.array([int(atom == atom_type) for atom_type in self.atom_types for atom in atoms]).astype(float)
         return torch.tensor(out).reshape(5, len(atoms)).T
 
     def target(self, x):
@@ -67,8 +55,7 @@ class MolecularDataset(datasets):
         return len(self.adjs)
 
     def __getitem__(self, item):
-        return self.data[item]
-
+        return self.adjs[item], self.sigs[item], self.prop[item]
 
 
 class GCN:
@@ -110,7 +97,7 @@ class MyModel(nn.Module):
     def forward(self, A, h0):
         pass
 
-
+quit()
 """
     Train
 """
