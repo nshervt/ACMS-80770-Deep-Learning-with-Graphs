@@ -22,10 +22,16 @@ from torch.utils.data import Dataset, DataLoader
     load data
 """
 class MolecularDataset(Dataset):
-    def __init__(self, N):
+    def __init__(self, N, train=True):
+        if train:
+            start, end = 0, 100000
+        else:
+            start, end = 100000, 130000
+
+
         dataset, dataset_smiles = datasets.get_qm9(GGNNPreprocessor(kekulize=True),
                                                    return_smiles=True,
-                                                   target_index=np.random.choice(range(133000), N, False))
+                                                   target_index=np.random.choice(range(133000)[start:end], N, False))
 
         self.atom_types = [6, 8, 7, 9, 1]
         self.V = 9
@@ -104,8 +110,11 @@ class MyModel(nn.Module):
 model = MyModel()
 # MyLoss =
 # MyOptimizer =
-train_dataset = MolecularDataset(N=5000)
-train_dataloader = DataLoader(train_dataset, batch_size=2, shuffle=True)
+
+train_dataset = MolecularDataset(N=5000, train=True)
+train_dataloader = DataLoader(train_dataset, batch_size=10, shuffle=True)
+
+test_dataset = MolecularDataset(N=5000, train=False)
 
 # -- update parameters
 for epoch in range(200):
