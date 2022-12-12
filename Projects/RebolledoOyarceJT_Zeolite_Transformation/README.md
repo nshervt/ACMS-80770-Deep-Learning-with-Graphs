@@ -10,15 +10,17 @@ Zeolites have a high industrial value due to their multiple applications in the 
 This implementation requires:
 
 * Python (>= 3.9)
-* SciPy (>= 1.4.1)
-* PyParsing (>= 1.1)
-* PyTorch (>= 1.5.0)
-* RDKit (>= 2019.09.3)
-* NumPy (>= 1.18.1)
-* Seaborn (>= 0.9.0)
-* scikit-learn (>= 0.22.1)
+* SciPy (>= 1.9.3)
+* PyTorch (>= 1.13)
+* NumPy (>= 1.23.4)
+* Seaborn (>= 0.12.1)
+* scikit-learn (>= 1.1.2)
 * Matplotlib (>= 3.1.1)
 * chainer-chemistry (>=0.6.0)
+* dscribe (>= 1.2)
+* csv (>= 1.0)
+* ase (>= 3.22.1)
+* pandas (>= 1.5.1)
 
 ### Installation
 
@@ -30,44 +32,28 @@ pip install -r requirements.txt
 
 ### Data
 
-Data samples are generated through `data.py`. The script accepts the following arguments:
+Data samples are generated through `GenerateDataset_for_GNN.py`. By the following line:
 
 ```bash
-optional arguments:
-  --data_size           Total size of the training + test dataset (default: 100000)
-  --N                   Size of the training set. (default: 600)
+python3 GenerateDataset_for_GNN.py
 ```
 
 ## Run
 
 ### Training
 
-The model is trained using `main.py`. This code accepts the following arguments:
+The model is trained using `Training_VGAE_Zeolite.py`, by the following line:
 
 ```bash
-optional arguments:
-  --epochs              number of epochs to train (default: 1900)
-  --batch_number        number of batches per epoch (default: 25)
-  --gpu_mode            accelerate the script using GPU (default: 1)
-  --z_dim               latent space dimensionality (default: 30)
-  --seed                random seed (default: 1400)
-```
-
-After generating the data, run
-
-```bash
-python3 main.py
+python3 Training_VGAE_Zeolite.py
 ```
 
 to train the base model.
 
-### Quantifying uncertainties
+### To Visualize and PCA analysis
 
-To perform UQ analysis, use `test.py`. The `test.py` script accepts the following arguments:
+To visualize and PCA analysis run the following command:
 
 ```bash
-optional arguments:
-  --BB_samples          number of samples for uncertainty quantification (default: 0)
-  --N                   number of training data (default: 600)
-  --database            name of the training database (default: 'QM9')
+python3 KClustering_Analysis_wPCA.py
 ```
