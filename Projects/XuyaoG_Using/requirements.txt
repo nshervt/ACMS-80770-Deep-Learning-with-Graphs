@@ -1,0 +1,6 @@
+NumPy >= 1.23.4
+Matplotlib >= 3.5.3
+tensorflow >= 2.10.0
+RDkit >= 2022.09.1
+scikit-learn >= 0.24.2
+chainer-chemistry >= 0.7.1
