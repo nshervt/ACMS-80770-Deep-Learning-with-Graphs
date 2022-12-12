@@ -2,7 +2,8 @@ Using Molecular Graph Convolution Neural Networks to Predict HOMO Energy in QM9 
 ======================================
 Computer aided drug design has become an important approach in drug discovery. The properties of drug molecule candidates are manipulate and quantify with mathematical tool base on their structural features. With the advent of deep learning with graph, people started using graph to describe molecule where atoms represent nodes and bond represent edges. Many different graph based neural networks are proposed to as molecular level representations in machine learning applications.
 
-In this work, I implemented the "Weave" representation proposed by Steven Kearnes. This weave representation consider molecules as graph and extract meaningful features from simple descriptions of the graph structure—atom and bond properties, and graph distances—to form molecule-level representations. Then I trained the implemented model with QM9 dataset to predict the HOMO energy.
+In this work, I implemented the "Weave" representation proposed by Steven Kearnes([2016](
+https://doi.org/10.1007/s10822-016-9938-8)). This weave representation consider molecules as graph and extract meaningful features from simple descriptions of the graph structure—atom and bond properties, and graph distances—to form molecule-level representations. Then I trained the implemented model with QM9 dataset to predict the HOMO energy.
 ## Getting Started
 
 ### Dependencies
@@ -47,3 +48,7 @@ After run 'main.py', a 'history' and 'weight' file will be generated. 'history' 
 ```
 model.load_weight('weight')
 ```
+### Reference
+
+[Ramsundar, B. (2019). Deep Learning for the Life Sciences. O'Reilly Media](https://www.amazon.com/Deep-Learning-Life-Sciences-Microscopy/dp/1492039837)
+
