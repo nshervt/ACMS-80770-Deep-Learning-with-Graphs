@@ -1,4 +1,4 @@
-# accuracy evaluation graphes
+# accuracy evaluations
 
 import matplotlib.pyplot as plt
 import numpy as np

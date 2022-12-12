@@ -3,6 +3,7 @@
 #		  the training on the partitioned high-fid mesh, each piece is obtained via parallel mesh partitioning	
 # method: classical Message-passing GNN
 # training method: mini-batch gradient descent via Adam
+# method reference: https://www.sciencedirect.com/science/article/abs/pii/S004578252200305X
 
 import torch
 import torch.nn as nn
