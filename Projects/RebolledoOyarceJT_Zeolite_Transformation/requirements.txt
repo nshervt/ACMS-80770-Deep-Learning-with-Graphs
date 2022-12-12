@@ -1,0 +1,11 @@
+SciPy >= 1.9.3
+torch >= 1.13
+NumPy >= 1.23.4
+seaborn >= 0.12.1
+scikit-learn >= 1.1.2
+Matplotlib >= 3.1.1
+chainer-chemistry
+dscribe >= 1.2
+csv >= 1.0
+ase >= 3.22.1
+pandas >= 1.5.1
