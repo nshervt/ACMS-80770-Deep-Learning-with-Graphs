@@ -3,40 +3,23 @@ A study of multi-fidelity graph neural networks
 
 Enhancing the flexibility of traditional numerical schemes via the modern data-driven approaches has gain much attentions in many areas. In this project, we follow a recent work of building the multi-fidelity graph neural network model to assist the traditional finite element approximation. We make a few potential extensions to the current framework so a broader range of problems can be considered.
 
-## Getting Started
-
 ### Dependencies
 
 This implementation requires:
 
 * Python (>= 3.5)
 * SciPy (>= 1.4.1)
-* PyParsing (>= 1.1)
 * PyTorch (>= 1.5.0)
-* RDKit (>= 2019.09.3)
 * NumPy (>= 1.18.1)
-* Seaborn (>= 0.9.0)
-* scikit-learn (>= 0.22.1)
 * Matplotlib (>= 3.1.1)
-* chainer-chemistry (>=0.6.0)
-
-### Installation
-
-After downloading the code, you may install it by running
-
-```bash
-pip install -r requirements.txt
-```
+* FEniCS (2019.1.0)
+* Mpi4py (>= 3.1.4)
+* Meshio (>= 2.3.5)
+* Mgmetis (>=0.1.1)
 
 ### Data
 
-Data samples are generated through `data.py`. The script accepts the following arguments:
-
-```bash
-optional arguments:
-  --data_size           Total size of the training + test dataset (default: 100000)
-  --N                   Size of the training set. (default: 600)
-```
+Training data is generated via the FEniCS project and stored in folders ```Canti2D/``` and ```Quarter2D/```. To generate new data, run the ```Data_prepare.py``` inside each folder to perform finite element computation and the solution will be saved in ```*/Sol/```. 
 
 ## Run
 
