@@ -1,4 +1,4 @@
-My Project Title
+Graphs for reduced order chemical kinetics
 ======================================
 
 A systematic approach for chemical reaction mechanism reduction was developed
