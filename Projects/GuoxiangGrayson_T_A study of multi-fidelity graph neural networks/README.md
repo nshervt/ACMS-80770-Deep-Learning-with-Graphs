@@ -25,24 +25,11 @@ Training data is generated via the FEniCS project and stored in folders ```Canti
 
 ### Training
 
-The model is trained using `main.py`. This code accepts the following arguments:
+The model for the 2D cantilever example is trained by script ```parallel_training-canti2D.py```.
+The model for the 2D quarter annular example is trained by script ```parallel_training-annular2D.py```.
 
-```bash
-optional arguments:
-  --epochs              number of epochs to train (default: 1900)
-  --batch_number        number of batches per epoch (default: 25)
-  --gpu_mode            accelerate the script using GPU (default: 1)
-  --z_dim               latent space dimensionality (default: 30)
-  --seed                random seed (default: 1400)
-```
 
-After generating the data, run
 
-```bash
-python3 main.py
-```
-
-to train the base model.
 
 ### Quantifying uncertainties
 
