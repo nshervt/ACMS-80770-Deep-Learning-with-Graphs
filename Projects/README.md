@@ -1,0 +1,1 @@
+This project does not need any dependencies to execute. The Python script has all the libraries necessary imported at the top
