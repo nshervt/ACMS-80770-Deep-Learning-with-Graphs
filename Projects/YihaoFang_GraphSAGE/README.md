@@ -28,5 +28,5 @@ run
 python3 GraphSAGE.py
 ```
 
-to train the GraphSGAE model and generate the PR curve.
+to train the GraphSGAE model and generate the plot of PR curve.
 
