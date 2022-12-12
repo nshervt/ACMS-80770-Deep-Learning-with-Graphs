@@ -1,7 +1,7 @@
-My Project Title
+Topological connection between zeolites and their potential interzeolite transformation
 ======================================
 
-A short abstract of the work.
+Zeolites have a high industrial value due to their multiple applications in the adsorption of compounds or as catalysts.However, obtaining large zeolites is highly expensive, which is why the interconversion between zeolites is critical for the viability of these processes. This interconversion does not define descriptors that allow relating the zeolites, for which Variational Graph Autoencoding was applied to combine the relationship between the different atoms that make up the zeolite and the different descriptors that it is possible to extract from these atoms.The corresponding latent variable was used to cluster the different graphs that represent the different zeolites, obtaining good interconversion predictions for different zeolites, such as BEA and CHA and it is possible to extend this analysis to other organized structures such as the Metal–organic frameworks (MOFs)
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ A short abstract of the work.
 
 This implementation requires:
 
-* Python (>= 3.5)
+* Python (>= 3.9)
 * SciPy (>= 1.4.1)
 * PyParsing (>= 1.1)
 * PyTorch (>= 1.5.0)
