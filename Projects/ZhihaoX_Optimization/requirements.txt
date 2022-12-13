@@ -1,0 +1,9 @@
+Python >= 3.7.3
+SciPy >= 1.7.3
+PyParsing >= 3.0.9
+PyTorch >= 1.10.2
+RDKit >= 2020.09.1.0
+NumPy >= 1.21.5
+scikit-learn >= 1.0.2
+Matplotlib >= 3.5.3
+chainer-chemistry >=0.7.1
